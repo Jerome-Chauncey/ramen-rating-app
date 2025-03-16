@@ -120,9 +120,38 @@ h2, h3 {
     background-color: black;
     color: whitesmoke;
     padding: 10px; 
-    width: 30%; 
+    width: 280px; 
     
 }
 
+#form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 
+#my-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 10px;
+    
+}
+
+#createbtn{
+    margin-top: 10px;
+}
+
+#createbtn{
+    background-color: black;
+    color: whitesmoke;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#createbtn:hover{
+    background-color: grey;
+}
 

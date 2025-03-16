@@ -112,15 +112,78 @@ function displayRamens() {
     restaurantName.textContent = presentations.restaurant;
 
     // Update rating and comment dynamically
-    ramenRating.innerHTML = `<strong>Rating:</strong> ${presentations.rating ? presentations.rating + "/10" : "N/A"}`;
-    ramenComment.innerHTML = `<strong>Comment:</strong> ${presentations.comment ? presentations.comment : "No comment available"}`;
+    ramenRating.innerHTML = `<strong>Rating:</strong> ${
+      presentations.rating ? presentations.rating + "/10" : "N/A"
+    }`;
+    ramenComment.innerHTML = `<strong>Comment:</strong> ${
+      presentations.comment ? presentations.comment : "No comment available"
+    }`;
   }
 
-
-
-  let form = document.querySelector("form")
+  let form = document.querySelector("form");
 }
 
 displayRamens();
 
+function addSubmitListener() {
+  const form = document.getElementById("my-form");
 
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    //get values from the form
+
+    const name = document.getElementById("name").value;
+    const restaurant = document.getElementById("restuarant").value;
+    const image = document.getElementById("image").value;
+    const rating = parseInt(document.getElementById("rating").value);
+    const comment = document.getElementById("comment").value;
+
+    //new image element
+
+    const addToMenuImg = document.createElement("img");
+    addToMenuImg.src = image;
+    addToMenuImg.alt = name;
+    addToMenuImg.style.cursor = "pointer";
+
+    //append new image to #ramen-menu
+    const ramenMenu = document.getElementById("ramen-menu");
+    ramenMenu.appendChild(addToMenuImg);
+
+    //when clicked show details
+    addToMenuImg.addEventListener("click", function () {
+      updateRamenDetails({ image, name, restaurant, rating, comment });
+    });
+
+    //clear form field after submission
+    form.reset();
+  });
+}
+
+addSubmitListener();
+
+function updateRamenDetails(ramen) {
+
+  let ramenDetailContainer = document.querySelector("#ramen-detail");
+
+  let ramenDetailImg = document.querySelector("#ramen-detail img");
+  if (!ramenDetailImg) {
+    // If the image doesn't exist, create and append it
+    ramenDetailImg = document.createElement("img");
+    ramenDetailContainer.prepend(ramenDetailImg);
+  }
+
+  let ramenName = document.querySelector("#ramen-info h2");
+  let restaurantName = document.querySelector("#ramen-info h3");
+  let ramenRating = document.querySelector(".ramen-text-container p:nth-of-type(1)");
+  let ramenComment = document.querySelector(".ramen-text-container p:nth-of-type(2)");
+
+  //update content
+
+  ramenDetailImg.src = ramen.image;
+  ramenDetailImg.alt = ramen.name;
+  ramenName.textContent = ramen.name;
+  restaurantName.textContent = ramen.restaurant;
+  ramenRating.innerHTML = `<strong>Rating:</strong> ${ramen.rating ? ramen.rating + "/10" : "N/A"}`;
+  ramenComment.innerHTML = `<strong>Comment:</strong> ${ramen.comment ? ramen.comment : "No comment available"}`;
+}
