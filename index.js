@@ -70,7 +70,13 @@ function displayRamens() {
       rating: 4,
       comment: "Very flavorful!",
     },
-    { image: "images/kojiro.jpg", name: "Kojiro Ramen", restaurant: "Jet-lii" },
+    {
+      image: "images/kojiro.jpg",
+      name: "Kojiro Ramen",
+      restaurant: "Jet-lii",
+      rating: 4,
+      comment: "Nom nom!",
+    },
     {
       image: "images/naruto.jpg",
       name: "Naruto Ramen",
@@ -82,6 +88,8 @@ function displayRamens() {
       image: "images/nirvana.jpg",
       name: "Nirvana Ramen",
       restaurant: "Bamako",
+      rating: 1,
+      comment: "Too much salt",
     },
     {
       image: "images/shoyu.jpg",
@@ -104,6 +112,10 @@ function displayRamens() {
     });
     ramenMenu.appendChild(img1);
   });
+
+  if (ramenImages.length > 0) {
+    handleClick(ramenImages[0]); //selects the first ramen as default
+  }
 
   function handleClick(presentations) {
     ramenDetailImg.src = presentations.image;
@@ -163,7 +175,6 @@ function addSubmitListener() {
 addSubmitListener();
 
 function updateRamenDetails(ramen) {
-
   let ramenDetailContainer = document.querySelector("#ramen-detail");
 
   let ramenDetailImg = document.querySelector("#ramen-detail img");
@@ -175,8 +186,12 @@ function updateRamenDetails(ramen) {
 
   let ramenName = document.querySelector("#ramen-info h2");
   let restaurantName = document.querySelector("#ramen-info h3");
-  let ramenRating = document.querySelector(".ramen-text-container p:nth-of-type(1)");
-  let ramenComment = document.querySelector(".ramen-text-container p:nth-of-type(2)");
+  let ramenRating = document.querySelector(
+    ".ramen-text-container p:nth-of-type(1)"
+  );
+  let ramenComment = document.querySelector(
+    ".ramen-text-container p:nth-of-type(2)"
+  );
 
   //update content
 
@@ -184,6 +199,10 @@ function updateRamenDetails(ramen) {
   ramenDetailImg.alt = ramen.name;
   ramenName.textContent = ramen.name;
   restaurantName.textContent = ramen.restaurant;
-  ramenRating.innerHTML = `<strong>Rating:</strong> ${ramen.rating ? ramen.rating + "/10" : "N/A"}`;
-  ramenComment.innerHTML = `<strong>Comment:</strong> ${ramen.comment ? ramen.comment : "No comment available"}`;
+  ramenRating.innerHTML = `<strong>Rating:</strong> ${
+    ramen.rating ? ramen.rating + "/10" : "N/A"
+  }`;
+  ramenComment.innerHTML = `<strong>Comment:</strong> ${
+    ramen.comment ? ramen.comment : "No comment available"
+  }`;
 }

@@ -1,0 +1,154 @@
+@media (max-width: 375px) {
+  #ramen-menu {
+    max-width: 100%; /* ensures proper menu size on phones*/
+  }
+
+  #ramen-menu img {
+    max-width: 100px; /* ensures proper image size on phones */
+  }
+}
+
+* {
+  font-family: Noto Sans, sans-serif;
+  font-size: 20px;
+}
+
+.header {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.topHeading {
+  color: #f5deb3;
+  text-decoration: none;
+  padding: 7px;
+  font-size: 24px;
+}
+
+/* images small and centered */
+#ramen-menu {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  max-width: 100%; /* Prevents images from stretching across the entire screen */
+  margin: 0 auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+#ramen-menu img {
+  width: auto;
+  max-width: 120px;
+  height: 105px;
+  display: block;
+  border-radius: 5px;
+}
+
+#ramen-detail {
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* This keeps the ramen image and info together */
+.ramen-detail-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Image inside ramen-detail-container */
+#ramen-detail img {
+  width: 375px;
+  height: auto;
+  display: block;
+}
+
+/* ramen-info moves to the bottom-left of the image */
+#ramen-info {
+  position: absolute;
+  bottom: 5px; /* Moves text to bottom */
+  left: 5px; /* Aligns text to the left */
+
+  color: #f5deb3;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 3px;
+  text-align: left;
+}
+
+h2,
+h3 {
+  background-color: rgba(245, 40, 145, 0.13);
+  border-radius: 2px;
+}
+
+.ramen-text-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.ramen-text-container p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+#add-new-ramen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: #f5deb3;
+  padding: 10px;
+  width: 280px;
+}
+
+#form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#my-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 10px;
+}
+
+#createbtn {
+  background-color: #a52a2a;
+  color: #f5deb3;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#createbtn:hover {
+  background-color: #c4a484;
+}
